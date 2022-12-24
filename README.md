@@ -6,19 +6,27 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+3.1.3
 
-* System dependencies
+# 環境構築
 
-* Configuration
+## docker を用いた環境構築
+以下を実行
+```bash
+docker compose up -d
+```
 
-* Database creation
+## ローカルを用いた環境構築
 
-* Database initialization
+### ruby のインストール
 
-* How to run the test suite
+#### windows
+https://prog-8.com/docs/ruby-env-win
+(rubyダウンロードページ)[https://rubyinstaller.org/downloads/]から `3.1.3` をダウンロード
 
-* Services (job queues, cache servers, search engines, etc.)
+インスーラーを使ってインストールする
 
-* Deployment instructions
+### postgres のインストール
 
-* ...
+#### windows
+(postgres ダウンロードページ)[https://www.postgresql.org/download/windows/]からインストーラーをダウンロードする
