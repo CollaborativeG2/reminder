@@ -1,15 +1,22 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: "<%= ENV.fetch('POSTGRES_HOST', '127.0.0.1') %>"
-  username: "<%= ENV.fetch('POSTGRES_USER', 'aiit_g2') %>"
-  password: "<%= ENV.fetch('POSTGRES_PASSWORD', 'password') %>"
   pool: 5
 
 development:
   <<: *default
   database: "<%= ENV.fetch('POSTGRES_DB', 'remainder_dev') %>"
+  host: "<%= ENV.fetch('POSTGRES_HOST', '127.0.0.1') %>"
+  username: "<%= ENV.fetch('POSTGRES_USER', 'aiit_g2') %>"
+  password: "<%= ENV.fetch('POSTGRES_PASSWORD', 'password') %>"
 
 test:
   <<: *default
   database: remainder_test
+
+production:
+  <<: *default
+  database: remainder
+  username: aiit-g2
+  password: <%= Rails.application.credentials.gcp[:db_password] %>
+  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/cloudsql/collaborative-g2:asia-northeast1:prod-remainder"
