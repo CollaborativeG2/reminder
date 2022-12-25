@@ -5,8 +5,8 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-#    env:
-#      RAILS_ENV: test
+    env:
+      RAILS_ENV: test
 #      RAILS_MASTER_KEY: ${{secrets.RAILS_MASTER_KEY}}
     steps:
       - name: Checkout code
@@ -28,7 +28,7 @@ jobs:
       #        run: yarn install --frozen-lockfile
 
       - name: Migrate database
-        run: RAILS_ENV=test bundle exec rails db:migrate
+        run: bundle exec rails db:migrate
 
       - name: Run test
         run: bundle exec rails test
