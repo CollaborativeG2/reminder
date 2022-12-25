@@ -7,6 +7,8 @@ on:
 jobs:
   tests:
     uses: ./.github/workflows/unit-test.yml
+    secrets:
+      rails_master_key: ${{ secrets.RAILS_MASTER_KEY }}
 
   build_and_deploy:
     runs-on: ubuntu-latest
