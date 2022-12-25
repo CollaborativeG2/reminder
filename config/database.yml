@@ -10,13 +10,15 @@ development:
   username: "<%= ENV.fetch('POSTGRES_USER', 'aiit_g2') %>"
   password: "<%= ENV.fetch('POSTGRES_PASSWORD', 'password') %>"
 
-test:
-  <<: *default
-  database: remainder_test
-
 production:
   <<: *default
   database: remainder
   username: aiit-g2
   password: <%= Rails.application.credentials.gcp[:db_password] %>
   host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/collaborative-g2:asia-northeast1:prod-remainder"
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000

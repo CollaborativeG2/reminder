@@ -1,0 +1,11 @@
+name: Test
+on:
+  push:
+    branches-ignore:
+      - 'main'
+
+jobs:
+  tests:
+    uses: ./.github/workflows/unit-test.yml
+    secrets:
+      rails_master_key: ${{ secrets.RAILS_MASTER_KEY }}
