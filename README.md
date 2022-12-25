@@ -41,7 +41,7 @@ docker compose build
 
 #### windows
 https://prog-8.com/docs/ruby-env-win
-(rubyダウンロードページ)[https://rubyinstaller.org/downloads/]から `3.1.3` をダウンロード
+[rubyダウンロードページ](https://rubyinstaller.org/downloads/)から `3.1.3` をダウンロード
 
 インスーラーを使ってインストールする
 
@@ -63,7 +63,7 @@ source ~/.bash_profile
 ### postgres のインストール
 
 #### windows
-(postgres ダウンロードページ)[https://www.postgresql.org/download/windows/]からインストーラーをダウンロードする
+[postgres ダウンロードページ](https://www.postgresql.org/download/windows/)からインストーラーをダウンロードする
 
 #### mac
 ```bash
