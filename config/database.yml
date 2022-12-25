@@ -16,9 +16,9 @@ test:
   pool: 5
   timeout: 5000
 
-production:
-  <<: *default
-  database: remainder
-  username: aiit-g2
-  password: <%= Rails.application.credentials.gcp[:db_password] %>
-  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/collaborative-g2:asia-northeast1:prod-remainder"
+#production:
+#  <<: *default
+#  database: remainder
+#  username: aiit-g2
+#  password: <%#= Rails.application.credentials.gcp[:db_password] %>
+#  host: "<%#= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/collaborative-g2:asia-northeast1:prod-remainder"
