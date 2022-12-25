@@ -27,7 +27,9 @@ jobs:
       #        run: yarn install --frozen-lockfile
 
       - name: Migrate database
-        run: bundle exec rails db:migrate
+        run: |
+          echo $RAILS_ENV
+          bundle exec rails db:migrate
 
       - name: Run test
         run: bundle exec rails test
