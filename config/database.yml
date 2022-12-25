@@ -19,4 +19,4 @@ production:
   database: remainder
   username: aiit-g2
   password: <%= Rails.application.credentials.gcp[:db_password] %>
-  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/cloudsql/collaborative-g2:asia-northeast1:prod-remainder"
+  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/collaborative-g2:asia-northeast1:prod-remainder"
