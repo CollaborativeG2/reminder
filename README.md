@@ -12,11 +12,12 @@ Things you may want to cover:
 ## docker を用いた環境構築
 ### git clone
 ```bash
-git clone https://github.com/CollaborativeG2/remainder.git
+git clone git@github.com:CollaborativeG2/remainder.git
 ```
 
 ### コンテナ立ち上げ
 ```bash
+cd remainder
 docker compose up -d
 ```
 
