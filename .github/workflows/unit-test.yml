@@ -1,14 +1,16 @@
 name: Unit Test
 on:
   workflow_call:
+    secrets:
+      rails_master_key:
+        required: true
 
 jobs:
   tests:
     runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
-#      RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-      RAILS_MASTER_KEY: dummy
+      RAILS_MASTER_KEY: ${{ secrets.rails_master_key }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -29,9 +31,7 @@ jobs:
       #        run: yarn install --frozen-lockfile
 
       - name: Migrate database
-        run: |
-          echo $RAILS_MASTER_KEY
-          bundle exec rails db:migrate
+        run: bundle exec rails db:migrate
 
       - name: Run test
         run: bundle exec rails test
