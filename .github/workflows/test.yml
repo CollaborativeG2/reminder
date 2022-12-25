@@ -1,0 +1,9 @@
+name: Test
+on:
+  push:
+    branches-ignore:
+      - 'main'
+
+jobs:
+  tests:
+    uses: ./.github/workflows/unit-test.yml
