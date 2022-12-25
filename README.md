@@ -40,13 +40,13 @@ docker compose build
 ### ruby のインストール
 
 #### windows
-https://prog-8.com/docs/ruby-env-win
+https://prog-8.com/docs/ruby-env-win  
 [rubyダウンロードページ](https://rubyinstaller.org/downloads/)から `3.1.3` をダウンロード
 
 インスーラーを使ってインストールする
 
 #### mac(rbenv)
-https://qiita.com/petertakahashi/items/1447c401c928d08a040b
+https://qiita.com/petertakahashi/items/1447c401c928d08a040b  
 ```bash
 brew install rbenv
 brew install ruby-build
