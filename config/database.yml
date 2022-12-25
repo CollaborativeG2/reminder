@@ -12,7 +12,7 @@ development:
 
 test:
   <<: *default
-  database: remainder_test
+  database: db/test.sqlite3
 
 production:
   <<: *default
