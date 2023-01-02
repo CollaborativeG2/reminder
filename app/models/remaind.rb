@@ -1,0 +1,3 @@
+class Remaind < ApplicationRecord
+
+end

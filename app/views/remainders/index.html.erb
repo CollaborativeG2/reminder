@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>remainders</h1>
+
+<div id="remainders">
+  <% @remainders.each do |remainder| %>
+    <%= render remainder %>
+    <p>
+      <%= link_to "Show this remainder", remainder %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New remainder", new_remainder_path %>
