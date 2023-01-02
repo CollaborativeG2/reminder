@@ -28,3 +28,9 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: remainder_dev
       POSTGRES_USER: aiit_g2
+      TZ: "Asia/Tokyo"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
