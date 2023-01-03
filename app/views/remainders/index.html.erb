@@ -1,14 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>remainders</h1>
+<h1>AIIT Reminders</h1>
 
 <div id="remainders">
+
   <% @remainders.each do |remainder| %>
-    <%= render remainder %>
+
+  <div id="<%= dom_id remainder %>">
     <p>
-      <%= link_to "Show this remainder", remainder %>
+    <strong>description:</strong >
+      <%= remainder.description %>
+    <strong>remind date:</strong>
+      <%= remainder.remainds[0].remaind_at %>
     </p>
-  <% end %>
+  
+  </div>
+ 
+
 </div>
 
-<%= link_to "New remainder", new_remainder_path %>
+
+<%= link_to "New task", new_remainder_path %>
+
