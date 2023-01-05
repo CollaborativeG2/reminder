@@ -2,7 +2,14 @@ steps:
   - id: "build image"
     name: "gcr.io/cloud-builders/docker"
     entrypoint: 'bash'
-    args: ["-c", "docker build --build-arg MASTER_KEY=$$RAILS_KEY -t gcr.io/${PROJECT_ID}/${_SERVICE_NAME} . "]
+    args: [
+      "build",
+      "--build-arg",
+      "MASTER_KEY=$$RAILS_KEY",
+      "-t gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$SHORT_SHA",
+      "-t gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:latest",
+      "."
+    ]
     secretEnv: ["RAILS_KEY"]
 
   - id: "push image"
@@ -18,6 +25,11 @@ steps:
         "/buildstep/execute.sh -i gcr.io/${PROJECT_ID}/${_SERVICE_NAME} -s ${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -e  -- bundle exec rails db:migrate"
       ]
     secretEnv: ["RAILS_KEY"]
+
+  - id: "deploy cloud run"
+    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['run', 'deploy', '${_SERVICE_NAME}', '--image', 'gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$SHORT_SHA', '--region', '${_REGION}']
 
 substitutions:
   _REGION: us-central1
