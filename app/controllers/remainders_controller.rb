@@ -17,7 +17,7 @@ class RemaindersController < ApplicationController
 
   def create
     remaind_item=RemaindItem.new(remaind_item_params)
-    remaind_item.user_id=1
+    remaind_item.user = User.first
     remaind_item.remainds.build(remaind_params)
     respond_to do |format|
       if remaind_item.save
