@@ -2,14 +2,7 @@ steps:
   - id: "build image"
     name: "gcr.io/cloud-builders/docker"
     entrypoint: 'bash'
-    args: [
-      "build",
-      "--build-arg",
-      "MASTER_KEY=$$RAILS_KEY",
-      "-t gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$SHORT_SHA",
-      "-t gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:latest",
-      "."
-    ]
+    args: ["-c", "docker build --build-arg MASTER_KEY=$$RAILS_KEY -t gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$SHORT_SHA -t gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:latest . "]
     secretEnv: ["RAILS_KEY"]
 
   - id: "push image"
