@@ -1,9 +1,28 @@
 <h1>New Task</h1>
 
-<%= render "form", remainder: @remainders %>
+<%= form_with(model: @remaind_item, url: remainders_path) do |form| %>
+  
 
-<br>
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+
+  
+    <%= fields_for :remaind, @remaind_item.remainds.first do |remaind_form| %>
+      <%= form.label :remaind_at, style: "display: block" %>
+      <%= remaind_form.text_field :remaind_at %>
+    <% end %>
+
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
 
 <div>
-  <%= link_to "Back to Tasks", users_path %>
+  <%= link_to "Back to Tasks", remainders_path %>
 </div>
