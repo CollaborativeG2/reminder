@@ -16,5 +16,5 @@ jobs:
     steps:
       - run: >
           curl --location --request POST 
-          'https://cloudbuild.googleapis.com/v1/projects/collaborative-g2/triggers/remainder:webhook?key=${{secrets.BUILD_API_KEY}}&secret=${{secrets.BUILD_SECRET}}' 
+          'https://cloudbuild.googleapis.com/v1/projects/collaborative-g2/triggers/reminder:webhook?key=${{secrets.BUILD_API_KEY}}&secret=${{secrets.BUILD_SECRET}}' 
           --header 'Content-Type: application/json'

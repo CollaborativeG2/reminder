@@ -1,0 +1,22 @@
+<h1>New Task</h1>
+
+<%= form_with(model: @remind_item, url: reminders_path) do |form| %>
+  
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <%= fields_for :remind, @remind_item.reminds.first do |remind_form| %>
+    <%= form.label :remind_at, style: "display: block" %>
+    <%= remind_form.text_field :remind_at %>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to "Back to Tasks", reminders_path %>
+</div>
