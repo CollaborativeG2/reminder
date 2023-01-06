@@ -1,3 +1,0 @@
-class Remaind < ApplicationRecord
-
-end

@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>AIIT Reminders</h1>
+
+<div id="reminders">
+
+  <% @reminders.each do |reminder| %>
+
+  <div id="<%= dom_id reminder %>">
+    <p>
+    <strong>description:</strong>
+      <%= reminder.description %>
+    <strong>remind date:</strong>
+      <%= reminder.reminds[0].remind_at %>
+    </p>
+  
+  </div>
+ <% end %>
+
+</div>
+
+<%= link_to "New task", new_reminder_path %>

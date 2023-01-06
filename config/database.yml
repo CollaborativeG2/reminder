@@ -5,17 +5,17 @@ default: &default
 
 development:
   <<: *default
-  database: "<%= ENV.fetch('POSTGRES_DB', 'remainder_dev') %>"
+  database: "<%= ENV.fetch('POSTGRES_DB', 'reminder_dev') %>"
   host: "<%= ENV.fetch('POSTGRES_HOST', '127.0.0.1') %>"
   username: "<%= ENV.fetch('POSTGRES_USER', 'aiit_g2') %>"
   password: "<%= ENV.fetch('POSTGRES_PASSWORD', 'password') %>"
 
 production:
   <<: *default
-  database: remainder
+  database: reminder
   username: aiit-g2
   password: <%= Rails.application.credentials.gcp[:db_password] %>
-  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/collaborative-g2:asia-northeast1:prod-remainder"
+  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/collaborative-g2:asia-northeast1:prod-reminder"
 
 test:
   adapter: sqlite3

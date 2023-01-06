@@ -12,12 +12,12 @@ Things you may want to cover:
 ## docker を用いた環境構築
 ### git clone
 ```bash
-git clone git@github.com:CollaborativeG2/remainder.git
+git clone git@github.com:CollaborativeG2/reminder.git
 ```
 
 ### コンテナ立ち上げ
 ```bash
-cd remainder
+cd reminder
 docker compose up -d
 ```
 
@@ -73,12 +73,12 @@ brew install postgresql
 
 ### git clone
 ```bash
-git clone https://github.com/CollaborativeG2/remainder.git
+git clone https://github.com/CollaborativeG2/reminder.git
 ```
 
 ### bundle install
 ```bash
-cd remainder
+cd reminder
 bundle install
 ```
 
