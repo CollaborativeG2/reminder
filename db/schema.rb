@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_02_105236) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_09_124826) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_105236) do
     t.bigint "remind_item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "notified", default: false
     t.index ["remind_item_id"], name: "index_reminds_on_remind_item_id"
   end
 

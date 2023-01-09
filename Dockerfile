@@ -9,6 +9,15 @@ ENV RAILS_MASTER_KEY=${MASTER_KEY}
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 RUN apt update -y && apt -y install libpq-dev
 
+## nodejs
+#RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+#RUN sudo apt-get update && sudo apt-get install -y nodejs
+#
+## yarn
+#RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+#RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+#RUN sudo apt-get update && apt-get install yarn
+
 WORKDIR /myapp
 ADD Gemfile /myapp/Gemfile
 ADD Gemfile.lock /myapp/Gemfile.lock
