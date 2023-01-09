@@ -6,7 +6,7 @@ ARG GID=1000
 ENV RAILS_ENV=development
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
-RUN apt update -y && apt -y install libpq-dev sudo
+RUN apt update -y && apt -y install libpq-dev
 
 RUN mkdir /myapp
 WORKDIR /myapp
