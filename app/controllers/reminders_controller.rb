@@ -5,6 +5,7 @@ class RemindersController < ApplicationController
   end
 
   def show
+    @reminder = RemindItem.find(params[:id])
   end
 
   def new
