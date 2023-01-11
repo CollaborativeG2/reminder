@@ -22,7 +22,6 @@ SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new(
   ]
 )
 SimpleCov.start do
-  enable_coverage :branch
   track_files "{app,lib}/**/*.rb"
 end
 
