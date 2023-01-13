@@ -27,9 +27,7 @@ docker compose run web bundle exec rails db:migrate
 ```
 
 ### bundle install
-```bash
-docker compose run web bundle install
-```
+[docker build](#docker-build実行) を実行する
 
 ### docker build実行
 ```bash
