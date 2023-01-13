@@ -26,4 +26,16 @@ jobs:
         run: bundle exec rails db:migrate
 
       - name: Run test
-        run: bundle exec rails test
+        run: bundle exec rspec
+
+      - name: Simplecov Report
+        uses: aki77/simplecov-report-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          failedThreshold: 50
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: coverage

@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_124826) do
 
   create_table "remind_items", force: :cascade do |t|
     t.string "description"
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_remind_items_on_user_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_124826) do
 
   create_table "reminds", force: :cascade do |t|
     t.datetime "remind_at", precision: nil
-    t.bigint "remind_item_id"
+    t.integer "remind_item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "notified", default: false

@@ -69,4 +69,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem "sqlite3"
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
+  gem 'simplecov'
+  gem 'simplecov-json'
 end
