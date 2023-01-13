@@ -5,7 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       network: host
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+      args:
+        - UID=${UID}
+        - GID=${GID}
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bin/rails s -p 3000 -b '0.0.0.0'"
     tty: true
     depends_on:
       - db
@@ -18,6 +21,8 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_HOST: db
       POSTGRES_DB: reminder_dev
+      RAILS_ENV: development
+    user: "${UID}:${GID}"
 
   db:
     image: postgres:14.4

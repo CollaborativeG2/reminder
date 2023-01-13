@@ -1,0 +1,24 @@
+<h1>This task</h1>
+
+<p style="color: green"><%= notice %></p>
+
+<%#= render @reminder %>
+<div id="<%= dom_id @reminder %>">
+  <p>
+  <strong>description:</strong>
+    <%= @reminder.description %>
+  <strong>remind date:</strong>
+    <%= @reminder.reminds[0].remind_at %>
+  </p>
+
+</div>
+<div>
+
+  <%= link_to "Back to tasks", reminders_path %>
+
+  <%= button_to 'Destroy this task', {controller: 'reminders', action: 'destroy', id: @reminder.id}, {method: :delete }%>
+</div>
+
+<div>
+  <%= link_to "Back to Top", reminders_path %>
+</div>
