@@ -5,6 +5,7 @@ class RemindersController < ApplicationController
   end
 
   def show
+    @reminder = RemindItem.find(params[:id])
   end
 
   def new
@@ -34,6 +35,14 @@ class RemindersController < ApplicationController
   end
     
   def destroy
+ 
+    remind_item = RemindItem.find(params[:id])
+    remind_item.destroy
+
+    respond_to do |format|
+      format.html { redirect_to reminders_url, notice: "Task was successfully destroyed." }
+
+    end
   end
 
   private
