@@ -1,7 +1,8 @@
 class RemindersController < ApplicationController
+  before_action :logged_in_user
 
   def index
-    @reminders = RemindItem.all
+    @reminders = RemindItem.where(user: current_user)
   end
 
   def show
@@ -17,8 +18,8 @@ class RemindersController < ApplicationController
   end
 
   def create
-    remind_item=RemindItem.new(remind_item_params)
-    remind_item.user_id=1
+    remind_item = RemindItem.new(remind_item_params)
+    remind_item.user = current_user
     remind_item.reminds.build(remind_params)
     respond_to do |format|
       if remind_item.save
@@ -35,7 +36,6 @@ class RemindersController < ApplicationController
   end
     
   def destroy
- 
     remind_item = RemindItem.find(params[:id])
     remind_item.destroy
 
