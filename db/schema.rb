@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_09_124826) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_16_152307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "remind_items", force: :cascade do |t|
     t.string "description"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_remind_items_on_user_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_124826) do
 
   create_table "reminds", force: :cascade do |t|
     t.datetime "remind_at", precision: nil
-    t.integer "remind_item_id"
+    t.bigint "remind_item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "notified", default: false
@@ -36,6 +36,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_124826) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "remember_digest"
+    t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "remind_items", "users"
