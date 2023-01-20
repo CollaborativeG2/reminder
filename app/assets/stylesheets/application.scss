@@ -1,1 +1,35 @@
 @import "bootstrap";
+
+#reminder-header {
+  display: flex;
+  width: 100%;
+}
+
+.new-button {
+  padding: 0 30px 0 0;
+}
+
+.reminders {
+  padding: 30px;
+  ul {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+}
+
+#container {
+  display: flex;
+  width: 100%;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.align-right {
+  margin: 0 0 0 auto;
+}
+
+.trash {
+  padding: 0 10px;
+  color: rgba(0, 0, 0, 0.125);
+}

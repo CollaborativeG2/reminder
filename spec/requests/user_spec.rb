@@ -22,8 +22,8 @@ RSpec.describe "Users", type: :request do
 
   describe "POST /users" do
     it do
-      post users_url, params: { user: { email: user.email, name: user.name, password: user.password, password_confirmation: user.password } }
-      expect(response).to have_http_status(:success)
+      post users_url, params: { user: { email: 'new_email@example.com', name: user.name, password: user.password, password_confirmation: user.password } }
+      expect(response).to redirect_to(root_url)
     end
   end
 

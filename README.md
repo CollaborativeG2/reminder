@@ -34,6 +34,11 @@ docker compose run web bundle exec rails db:migrate
 docker compose build
 ```
 
+### asset:precompile
+```bash
+docker compose run web bundle exec rails assets:precompile
+```
+
 ## ローカルを用いた環境構築
 
 ### ruby のインストール
