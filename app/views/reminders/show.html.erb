@@ -17,6 +17,7 @@
   <%= link_to "Back to tasks", reminders_path %>
 
   <%= button_to 'Destroy this task', {controller: 'reminders', action: 'destroy', id: @reminder.id}, {method: :delete }%>
+  <%= button_to 'Update this task', {controller: 'reminders', action: 'update', id: @reminder.id}, {method: :post}%>
 </div>
 
 <div>
