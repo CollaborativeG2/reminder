@@ -2,13 +2,20 @@
 
 <h1>Users</h1>
 
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
+<div id="reminders" class="reminders">
+  <ul class="list-group list-group-flush">
+    <% @users.each do |user| %>
+      <li id="<%= dom_id user %>" class="list-group-item">
+        <div id="container">
+          <%= link_to user_path(user.id) do %>
+            <div class="inline"><%= user.name %></div>
+            <div class="inline">(<%= user.email %>)</div>
+          <% end %>
+          <%= link_to image_tag('trash.svg', class: 'trash'), user_path(user.id), data: { turbo_method: :delete } %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
 <%= link_to "New user", new_user_path, {class: "btn btn-primary mx-1"} %>
