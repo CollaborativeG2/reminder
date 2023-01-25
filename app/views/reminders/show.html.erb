@@ -17,9 +17,16 @@
   <%= link_to "Back to tasks", reminders_path %>
 
   <%= button_to 'Destroy this task', {controller: 'reminders', action: 'destroy', id: @reminder.id}, {method: :delete }%>
-  <%= button_to 'Update this task', {controller: 'reminders', action: 'update', id: @reminder.id}, {method: :post}%>
+
 </div>
+
+<%= form_with(model: @remind, url: reminder_path, method: "put")  do |formUpdate| %>
+  <!--フォーム内容 -->
+  <%= formUpdate.text_field :remind_at %>
+  <%= formUpdate.submit %>
+<% end %>
 
 <div>
   <%= link_to "Back to Top", reminders_path %>
 </div>
+

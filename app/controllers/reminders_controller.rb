@@ -32,8 +32,8 @@ class RemindersController < ApplicationController
   end
 
   def update
-    remind_item = RemindItem.find(params[:id])
-    remind_item.update(description:'abc')
+    remind = Remind.find(params[:id])
+    remind.update(remind_at:params[:remind_at])
   end
     
   def destroy
