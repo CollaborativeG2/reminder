@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Reminder!"
       redirect_to root_url
     else
-      render 'new'
+      render :new, status: :unprocessable_entity
     end
   end
 
