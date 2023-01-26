@@ -1,22 +1,16 @@
-<h1>New Task</h1>
+<div id="new-task-body">
+  <%= form_with(model: @remind_item, url: reminders_path) do |form| %>
 
-<%= form_with(model: @remind_item, url: reminders_path) do |form| %>
-  
-  <div>
-    <%= form.label :description, style: "display: block" %>
+    <div id="new-task-content">
+    <%= form.label "内容", style: "display: block" %>
     <%= form.text_field :description %>
-  </div>
 
-  <%= fields_for :remind, @remind_item.reminds.first do |remind_form| %>
-    <%= form.label :remind_at, style: "display: block" %>
-    <%= remind_form.text_field :remind_at %>
+    <%= fields_for :remind, @remind_item.reminds.first do |remind_form| %>
+      <%= form.label "日時", style: "display: block" %>
+      <%= remind_form.datetime_field :remind_at %>
+    <% end %>
+    </div>
+    <%= form.submit "登録" %>
   <% end %>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<div>
-  <%= link_to "Back to Tasks", reminders_path %>
+  <%= link_to "戻る", reminders_path %>
 </div>
