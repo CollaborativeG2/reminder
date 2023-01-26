@@ -1,22 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>AIIT Reminders</h1>
-
-<div id="reminders">
-
-  <% @reminders.each do |reminder| %>
-
-  <div id="<%= dom_id reminder %>">
-    <p>
-    <strong>description:</strong>
-      <%= reminder.description %>
-    <strong>remind date:</strong>
-      <%= reminder.reminds[0].remind_at %>
-    </p>
-
+<div id="reminder-header">
+  <div class="align-right new-button">
+    <%= button_to '登録', {controller: 'reminders', action: 'new'}, {method: :get} %>
   </div>
- <% end %>
-
 </div>
-
-<%= link_to "New task", new_reminder_path %>
+<div id="reminders" class="reminders">
+  <ul class="list-group list-group-flush">
+    <% @reminders.each do |reminder| %>
+      <li id="<%= dom_id reminder %>" class="list-group-item">
+        <div id="container">
+          <%= link_to reminder_path(reminder.id) do %>
+            <div class="inline"><%= reminder.description %></div>
+          <% end %>
+            <div class="inline align-right"><%= reminder.reminds[0].remind_at.strftime('%Y年%m月%d日 %H:%M') %></div>
+          <%= link_to image_tag('trash.svg', class: 'trash'), reminder_path(reminder.id), data: { turbo_method: :delete } %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
