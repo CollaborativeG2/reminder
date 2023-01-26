@@ -16,6 +16,11 @@
             <div class="inline align-right"><%= reminder.reminds[0].remind_at.strftime('%Y年%m月%d日 %H:%M') %></div>
           <%= link_to image_tag('trash.svg', class: 'trash'), reminder_path(reminder.id), data: { turbo_method: :delete } %>
         </div>
+        <%= form_with(model: @remind, url: reminder_path(reminder.id), method: "put")  do |formUpdate| %>
+          <!--フォーム内容 -->
+          <%= formUpdate.text_field :remind_at %>
+          <%= formUpdate.submit %>
+        <% end %>
       </li>
     <% end %>
   </ul>
