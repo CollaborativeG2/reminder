@@ -7,7 +7,9 @@ class RemindersController < ApplicationController
 
   def show
     @reminder = RemindItem.find(params[:id])
+    @remind = @reminder.reminds.first
   end
+
 
   def new
     @remind_item = RemindItem.new
@@ -33,6 +35,14 @@ class RemindersController < ApplicationController
   end
 
   def update
+    remind = Remind.find(params[:id])
+    respond_to do |format|
+      if remind.update(remind_params)
+        format.html { redirect_to reminders_url, notice: "reminders was successfully edited." }
+      else
+        format.html { render :show, status: :unprocessable_entity }
+      end
+    end
   end
     
   def destroy

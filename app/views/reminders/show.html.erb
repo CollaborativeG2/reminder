@@ -11,6 +11,13 @@
     <%= @reminder.reminds[0].remind_at %>
   </p>
 
+  <% if @reminder.reminds[0].notified == true %>
+    <%= form_with(model: @remind, url: reminder_path(@reminder.id), method: "put")  do |formUpdate| %>
+      <!--フォーム内容 -->
+      <%= formUpdate.datetime_field :remind_at %>
+      <%= formUpdate.submit "再通知設定" %>
+    <% end %>
+  <% end %>
 </div>
 <div>
 
